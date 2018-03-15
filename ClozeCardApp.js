@@ -17,9 +17,9 @@ addClozeCard("Kyrie Irving was traded to the Boston Celtics from the Cleveland C
 var count = 0;
 var correct = 0;
 
-console.log("--------------------------------------------------------")
-console.log("NBA Trivia")
-console.log("--------------------------------------------------------")
+console.log("--------------------------------------------------------");
+console.log("NBA Trivia");
+console.log("--------------------------------------------------------");
 var askQuestion = function() {
     if (count < Cards.length) {
         inquirer.prompt([
@@ -29,28 +29,28 @@ var askQuestion = function() {
             }
         ])
         .then(function(response) {
-            console.log("--------------------------------------------------------")
+            console.log("--------------------------------------------------------");
             var answer = (response.userAnswer).toLowerCase();
             //console.log(answer);
             if (answer === (Cards[count].cloze).toLowerCase()) {
-                console.log("Correct!")
-                console.log("--------------------------------------------------------")
+                console.log("Correct!");
+                console.log("--------------------------------------------------------");
                 count++;
                 correct++;
                 askQuestion();
             }
             else {
-                console.log("Sorry Incorrect")
-                console.log("--------------------------------------------------------")
+                console.log("Sorry Incorrect - The correct answer is " + Cards[count].cloze);
+                console.log("--------------------------------------------------------");
                 count++;
                 askQuestion();
             }
         })
     }
     else {
-        console.log("--------------------------------------------------------")
-        console.log("You got " + correct + " out of " + count + " correct!")
-        console.log("--------------------------------------------------------")
+        console.log("--------------------------------------------------------");
+        console.log("You got " + correct + " out of " + count + " correct!");
+        console.log("--------------------------------------------------------");
     }
 }
 askQuestion();
